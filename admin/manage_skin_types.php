@@ -109,8 +109,8 @@ $skin_types = $stmt->fetchAll();
     <nav class="bg-white shadow-lg">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex justify-between items-center py-4">
-                <div class="flex items-center">
-                    <a href="dashboard.php" class="text-xl font-semibold text-gray-800">Admin Dashboard</a>
+                <div>
+                     <a href="dashboard.php" class="text-xl font-semibold text-gray-800">Admin Panel</a>
                 </div>
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-4">
@@ -149,14 +149,11 @@ $skin_types = $stmt->fetchAll();
             </div>
         </div>
     </nav>
+    
+    <!-- Header Navigation -->
 
-    <div class="max-w-7xl mx-auto px-4 py-6">
-        <div class="flex flex-col sm:flex-row justify-between items-center mb-6">
-            <h1 class="text-2xl font-bold mb-4 sm:mb-0">Kelola Jenis Kulit</h1>
-            <button onclick="showAddModal()" class="w-full sm:w-auto bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors">
-                Tambah Jenis Kulit
-            </button>
-        </div>
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 py-8">
         <?php if ($error): ?>
             <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6" role="alert">
                 <p><?php echo $error; ?></p>
@@ -169,7 +166,7 @@ $skin_types = $stmt->fetchAll();
             </div>
         <?php endif; ?>
 
-        <!-- Desktop Table View -->
+        <!-- Rest of your content -->
         <div class="hidden md:block bg-white rounded-lg shadow-md overflow-hidden">
             <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">

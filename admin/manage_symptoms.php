@@ -91,18 +91,42 @@ $categories = ['Appearance', 'Texture', 'Condition', 'Behavior'];
     <nav class="bg-white shadow-lg">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex justify-between items-center py-4">
-                <div class="flex items-center">
-                    <a href="dashboard.php" class="text-gray-800 hover:text-blue-500">
-                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-                        </svg>
-                    </a>
-                    <span class="text-xl font-semibold text-gray-800">Kelola Gejala</span>
+                <div>
+                     <a href="dashboard.php" class="text-xl font-semibold text-gray-800">Admin Panel</a>
                 </div>
-                <div class="flex items-center space-x-4">
-                    <button onclick="showAddModal()" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
-                        Tambah Gejala
-                    </button>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="manage_skin_types.php" class="text-gray-600 hover:text-blue-500">Jenis Kulit</a>
+                    <a href="manage_symptoms.php" class="text-gray-600 hover:text-blue-500">Gejala</a>
+                    <a href="manage_rules.php" class="text-gray-600 hover:text-blue-500">Aturan</a>
+                    <a href="diagnosis_manage.php" class="text-gray-600 hover:text-blue-500">Hasil Diagnosis</a>
+                    <div class="relative group">
+                        <button class="text-gray-600 hover:text-blue-500">
+                            <?php echo htmlspecialchars($_SESSION['admin_username']); ?> ▼
+                        </button>
+                        <div class="absolute right-0 w-48 py-2 mt-2 bg-white rounded-lg shadow-xl hidden group-hover:block">
+                            <a href="profile.php" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Profile</a>
+                            <a href="logout.php" class="block px-4 py-2 text-red-600 hover:bg-gray-100">Logout</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" id="menuBtn">
+                    <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+                        <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="hidden md:hidden" id="mobileMenu">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="manage_skin_types.php" class="block px-3 py-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-50">Jenis Kulit</a>
+                    <a href="manage_symptoms.php" class="block px-3 py-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-50">Gejala</a>
+                    <a href="manage_rules.php" class="block px-3 py-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-50">Aturan</a>
+                    <a href="diagnosis_manage.php" class="block px-3 py-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-50">Hasil Diagnosis</a>
+                    <hr class="my-2 border-gray-200">
+                    <a href="profile.php" class="block px-3 py-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-50">Profile</a>
+                    <a href="logout.php" class="block px-3 py-2 rounded-md text-red-600 hover:text-red-700 hover:bg-gray-50">Logout</a>
                 </div>
             </div>
         </div>
@@ -120,7 +144,14 @@ $categories = ['Appearance', 'Texture', 'Condition', 'Behavior'];
                 <p><?php echo $success; ?></p>
             </div>
         <?php endif; ?>
-
+        
+        <!-- Tambah Gejala Button -->
+        <div class="flex justify-end mb-4">
+            <button onclick="showAddModal()" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+                Tambah Gejala
+            </button>
+        </div>
+        
         <!-- Symptoms List -->
         <div class="bg-white rounded-lg shadow-md overflow-hidden">
             <table class="min-w-full divide-y divide-gray-200">

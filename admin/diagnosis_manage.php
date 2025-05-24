@@ -33,8 +33,8 @@ $diagnoses = $stmt->fetchAll();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Diagnoses - Admin - Sistem Pakar Skincare</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -43,8 +43,8 @@ $diagnoses = $stmt->fetchAll();
     <nav class="bg-white shadow-lg">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex justify-between items-center py-4">
-                <div class="flex items-center">
-                    <a href="dashboard.php" class="text-xl font-semibold text-gray-800">Admin Dashboard</a>
+                <div>
+                     <a href="dashboard.php" class="text-xl font-semibold text-gray-800">Admin Panel</a>
                 </div>
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-4">

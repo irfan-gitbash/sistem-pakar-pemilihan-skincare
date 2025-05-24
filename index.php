@@ -107,6 +107,19 @@
         document.getElementById('menuBtn').addEventListener('click', function() {
             document.getElementById('mobileMenu').classList.toggle('hidden');
         });
+        const dropdownToggle = document.querySelector('.dropdown-toggle');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+    
+    dropdownToggle.addEventListener('click', function() {
+        dropdownMenu.classList.toggle('hidden');
+    });
+    
+    // Close dropdown when clicking outside
+    window.addEventListener('click', function(e) {
+        if (!dropdownToggle.contains(e.target)) {
+            dropdownMenu.classList.add('hidden');
+        }
+    });
     </script>
 </body>
 </html>

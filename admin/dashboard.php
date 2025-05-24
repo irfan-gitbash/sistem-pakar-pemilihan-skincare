@@ -28,7 +28,7 @@ try {
         LEFT JOIN symptoms s ON FIND_IN_SET(s.code, dh.selected_symptoms)
         GROUP BY dh.id
         ORDER BY dh.created_at DESC
-        LIMIT 15
+        LIMIT 3
     ");
     $recentDiagnoses = $stmt->fetchAll();
 
@@ -60,8 +60,8 @@ try {
     <nav class="bg-white shadow-lg">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex justify-between items-center py-4">
-                <div class="flex items-center">
-                    <span class="text-xl font-semibold text-gray-800">Admin Dashboard</span>
+                <div>
+                     <a href="dashboard.php" class="text-xl font-semibold text-gray-800">Admin Panel</a>
                 </div>
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-4">
